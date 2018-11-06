@@ -4,13 +4,13 @@ Vagrant.configure(2) do |config|
     config.vm.network "forwarded_port", guest: 3306, host: 3309, auto_correct: true
     config.vm.network "forwarded_port", guest: 5000, host: 5001, auto_correct: true
     config.vm.network "forwarded_port", guest: 9876, host: 9877, auto_correct: true
-end
 
-config.vm.provider "virtualbox" do |v|
-    v.name = "SitePoint Test Vagrant"
-    v.customize ["modifyvm", :id, "--memory", "1024"]
-end
+    config.vm.provider "virtualbox" do |v|
+        v.name = "SitePoint Test Vagrant"
+        v.customize ["modifyvm", :id, "--memory", "1024"]
+    end
 
-config.vm.provision "shell" do |s|
-    s.path "provision/setup.sh"
+    config.vm.provision "shell" do |s|
+        s.path "provision/setup.sh"
+    end
 end
