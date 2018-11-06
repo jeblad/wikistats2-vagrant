@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
     config.vm.network "forwarded_port", guest: 9876, host: 9877, auto_correct: true
 
     config.vm.provider "virtualbox" do |v|
-        v.name = "SitePoint Test Vagrant"
+        v.name = "Wikistats2 in a Vagrant Box"
         v.customize ["modifyvm", :id, "--memory", "1024"]
     end
 
