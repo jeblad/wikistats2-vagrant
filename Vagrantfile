@@ -1,3 +1,9 @@
+system("
+    if [ #{ARGV[0]} = 'init' ]; then
+        provision/init.sh
+    fi
+")
+
 Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/bionic64"
     config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
